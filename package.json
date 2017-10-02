@@ -1,0 +1,28 @@
+{
+  "name": "app-docker",
+  "version": "1.0.0",
+  "description": "docker app example",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "express",
+    "node"
+  ],
+  "author": "Felipe da Rosa Oliveira",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "csurf": "^1.9.0",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "helmet": "^3.8.2",
+    "knex": "^0.13.0",
+    "multer": "^1.3.0",
+    "mysql": "^2.14.1",
+    "nunjucks": "^3.0.1",
+    "q": "^1.5.0"
+  }
+}

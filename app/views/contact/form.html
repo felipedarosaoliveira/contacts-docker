@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    </head>
+    <body>
+        <form action="save" method="POST">
+            <label for="txtCodigo">Codigo</label>
+            <input type="text" id="txtCodigo" name="id" value={{contact.id}} disabled>
+            <label for="txtName">Nome</label>
+            <input type="text" id="txtName" name="name" value={{contact.name}}>
+            <label for="txtEmail">Email</label>
+            <input type="text" id="txtEmail" name="email" value={{contact.email}}>
+            <label for="txtTelephone">Telefone</label>
+            <input type="text" id="txtTelephone" name="telephone" value={{contact.telephone}}>
+            <p class="error">{{errorMessage}}</p>
+            <button type="submit">Salvar</button>
+        </form>
+    </body>
+</html>

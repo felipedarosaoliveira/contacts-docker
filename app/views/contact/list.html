@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lista de Contatos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h2>Contatos</h2>
+    <a href="novo">Novo</a>
+    <table>
+        <thead>
+            <tr>
+                <td>Codigo</td>
+                <td>Nome</td>
+                <td>Email</td>
+                <td>Telefone</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contato in contatos %}
+            <tr>
+                <td>{{contato.id}}</td>
+                <td>{{contato.name}}</td>
+                <td>{{contato.email}}</td>
+                <td>{{contato.telephone}}</td>
+            </tr>
+
+            {% else %}
+            <tr>
+                <td colspan="4">Não foram encontrados contatos</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

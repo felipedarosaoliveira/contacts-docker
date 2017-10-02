@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    </head>
+    <body>
+        <form action="authenticate" method="POST">
+            <label for="txtLogin">Login</label>
+            <input type="text" id="txtLogin" name="login" value={{credentials.login}}>
+            <label for="txtPassword">Senha</label>
+            <input type="password" id="txtPassword" name="password" value={{credentials.password}}>
+            <p class="error">{{errorMessage}}</p>
+            <button type="submit">Entrar</button>
+        </form>
+    </body>
+</html>
