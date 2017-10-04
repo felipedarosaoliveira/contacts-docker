@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-       
-    </head>
-    <body>
-        <form action="authenticate" method="POST">
-            <label for="txtLogin">Login</label>
-            <input type="text" id="txtLogin" name="login" value={{credentials.login}}>
-            <label for="txtPassword">Senha</label>
-            <input type="password" id="txtPassword" name="password" value={{credentials.password}}>
-            <p class="error">{{errorMessage}}</p>
-            <button type="submit">Entrar</button>
-        </form>
+{% extends "../template.html" %}
+
+{% block header %}
+    <h1 class="banner">Docker App</h1>
+{% endblock %}
+
+{% block content %}
+<div class="panel-right">
+    <form action="authenticate" method="POST" class="form-login">
+        <label for="txtLogin">Login</label>
+        <input type="text" id="txtLogin" name="login" value={{credentials.login}}>
+        <label for="txtPassword">Senha</label>
+        <input type="password" id="txtPassword" name="password" value={{credentials.password}}>
+        <p class="message {{messageParam.type}}">{{messageParam.message}}</p>
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+{% endblock %}
+        
     </body>
 </html>

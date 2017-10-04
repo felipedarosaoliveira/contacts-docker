@@ -1,41 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "../template.html" %}
+{% block header %}
+<h1 class="banner">Docker App</h1>
+<h2>Meus Contatos</h2>
+{% endblock %}
 
-<head>
-    <title>Lista de Contatos</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+{% block content %}
+<div class="panel">
+{% if messageParam %}
+<p class="message {{messageParam.type}} app-fadeOut">{{messageParam.message}}</p>
+{% endif %}
+<div class="new">
+        <a href="./new"><i class="material-icons size-48">add_circle</i></a>
+</div>
+ 
 
-<body>
-    <h2>Contatos</h2>
-    <a href="novo">Novo</a>
-    <table>
-        <thead>
-            <tr>
-                <td>Codigo</td>
-                <td>Nome</td>
-                <td>Email</td>
-                <td>Telefone</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for contato in contatos %}
-            <tr>
-                <td>{{contato.id}}</td>
-                <td>{{contato.name}}</td>
-                <td>{{contato.email}}</td>
-                <td>{{contato.telephone}}</td>
-            </tr>
+<table>
+    <thead>
+        <tr>
+            <td>Codigo</td>
+            <td>Nome</td>
+            <td>Email</td>
+            <td>Telefone</td>
+            <td class="text-right">opções</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{contact.id}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.telephone}}</td>
+            <td class="text-right">
+                <a href="./edit?id={{contact.id}}"><i class="material-icons">edit</i></a>
+                <a href="./remove?id={{contact.id}}"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
 
-            {% else %}
-            <tr>
-                <td colspan="4">Não foram encontrados contatos</td>
-            </tr>
-            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="4">Não foram encontrados contatos</td>
+        </tr>
+        {% endfor %}
 
-        </tbody>
-    </table>
+    </tbody>
+</table>
+</div>
+{% endblock %}
+
+    
 
 </body>
 

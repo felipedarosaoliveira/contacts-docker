@@ -12,6 +12,10 @@ let routes = [
         path:'/authenticate',
         method:'post',
         middleware:[controller.authenticate]
+    },{
+        path:'/logout',
+        method:'get',
+        middleware:[controller.logout]
     }
 ];
 

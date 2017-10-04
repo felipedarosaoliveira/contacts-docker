@@ -4,19 +4,26 @@
         <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+        <link rel="stylesheet" href="/resources/app/css/app.css">
        
     </head>
     <body>
-        <form action="save" method="POST">
+            {% if messageParam %}
+            <p class="error app-fadeOut">{{messageParam.message}}</p>
+          
+          {% endif %}
+
+        <form action="save" method="POST" ">
             <label for="txtCodigo">Codigo</label>
-            <input type="text" id="txtCodigo" name="id" value={{contact.id}} disabled>
+            <input type="text" id="txtCodigo" name="id" value="{{contact.id}}" disabled>
             <label for="txtName">Nome</label>
-            <input type="text" id="txtName" name="name" value={{contact.name}}>
+            <input type="text" id="txtName" name="name" value="{{contact.name}}">
             <label for="txtEmail">Email</label>
-            <input type="text" id="txtEmail" name="email" value={{contact.email}}>
+            <input type="text" id="txtEmail" name="email" value="{{contact.email}}">
             <label for="txtTelephone">Telefone</label>
-            <input type="text" id="txtTelephone" name="telephone" value={{contact.telephone}}>
-            <p class="error">{{errorMessage}}</p>
+            <input type="text" id="txtTelephone" name="telephone" value="{{contact.telephone}}">
+           
             <button type="submit">Salvar</button>
         </form>
     </body>

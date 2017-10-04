@@ -23,6 +23,28 @@ nunjucks.configure('./app/views', {
     express: app
 });
 app.set('view engine', 'html');
+app.use(express.static('public'))
+
+function isPublicRoute(path){
+    let result = path == '/login' || path == '/authenticate'  || path.indexOf('/resources/') == 0; 
+   return result;
+}
+
+app.use(function(req,res,next){
+    res.locals.flash = req.session.flash;
+    delete req.session.flash;
+    next();
+
+})
+app.all('*',(req,resp,next)=>{
+    console.log('request for ',req.path)
+    if(req.session.currentUser || isPublicRoute(req.path)){
+        next();
+    }else {
+        resp.redirect('/login');
+    }
+
+})
 
 /* Load routes */
 require('./app/router')(app);

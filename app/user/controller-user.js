@@ -7,7 +7,6 @@ const login = (req,resp)=>{
         credentials:req.session.credentials,
         errorMessage:req.session.errorMessage
     }
-    console.log('login params', params)
     resp.render('user/login.html',params);
 }
 
@@ -18,14 +17,12 @@ const authenticate = (req,resp)=>{
     }
 
     function sucess (user){
-        console.log('sucess ...')
         req.session.currentUser = user;
         req.session.credentials = null;
         req.session.errorMessage = null;
         resp.redirect('/contacts/list');
     }
     function fail (errorMessage){
-        console.log('fail ...')
         console.log('credentials',credentials)
         req.session.credentials = credentials;
         console.log('session credentials',req.session.credentials)
@@ -39,7 +36,13 @@ const authenticate = (req,resp)=>{
 
 }
 
+const logout = (req,resp)=>{
+    req.session.destroy();
+    resp.redirect('/login');
+}
+
 module.exports = {
     authenticate,
-    login
+    login,
+    logout
 }
